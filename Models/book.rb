@@ -1,5 +1,7 @@
+require_relative 'author.rb'
+
 class Book
-  attr_accessor title, autor
+  attr_accessor :title, :autor
 
   def initialize(title, author)
     @title = title
