@@ -8,4 +8,8 @@ class Reader
     @street = street
     @house = house
   end
+
+  def to_s
+    "#{name} - #{email}. Address: #{city}, #{house} #{street}"
+  end
 end
