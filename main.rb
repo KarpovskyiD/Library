@@ -4,4 +4,4 @@ require_relative './Models/order.rb'
 require_relative './Models/reader.rb'
 require 'yaml'
 
-
+aut1 = Author.new("dadsf", "asasfasfasfsafasf");
