@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'Author'
-require_relative 'Book'
-require_relative 'Order'
-require_relative 'Reader'
+require_relative 'author'
+require_relative 'book'
+require_relative 'order'
+require_relative 'reader'
 require 'yaml'
 
 class Library
