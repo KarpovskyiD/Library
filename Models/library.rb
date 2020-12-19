@@ -30,4 +30,16 @@ class Library
     File.new(file_name, 'w') unless File.exist?(file_name)
     File.open(file_name, 'w') { |file| file.write(self.to_yaml) }
   end
+
+  def most_popular_reader
+    most_popular(1, :reader).first.name
+  end
+
+  private
+
+  def most_popular(elements_qty, method)
+    @orders.group_by(&method)
+           .max_by(elements_qty) { |_, value| value.length }
+           .to_h.keys
+  end
 end
