@@ -1,7 +1,7 @@
-require_relative './Models/author.rb'
-require_relative './Models/book.rb'
-require_relative './Models/order.rb'
-require_relative './Models/reader.rb'
-require 'yaml'
+# frozen_string_literal: true
 
-aut1 = Author.new("dadsf", "asasfasfasfsafasf");
+require_relative './Models/author'
+require_relative './Models/book'
+require_relative './Models/order'
+require_relative './Models/reader'
+require_relative './Models/library'

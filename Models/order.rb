@@ -1,13 +1,16 @@
-require_relative 'book.rb'
-require_relative 'reader.rb'
+# frozen_string_literal: true
+
+require_relative 'book'
+require_relative 'reader'
 
 class Order
   attr_accessor :book, :reader, :date
 
   def initialize(book, reader, date = Time.now)
-    raise StandardError.new "book is incorrect" unless book.is_a?(Book)
-    raise StandardError.new "reader is incorrect" unless reader.is_a?(Reader)
-    raise StandardError.new "date is incorrect" unless date.is_a?(Time)
+    raise StandardError, 'book is incorrect' unless book.is_a?(Book)
+    raise StandardError, 'reader is incorrect' unless reader.is_a?(Reader)
+    raise StandardError, 'date is incorrect' unless date.is_a?(Time)
+
     @book = book
     @reader = reader
     @date = date
