@@ -35,6 +35,17 @@ class Library
     most_popular(1, :reader).first.name
   end
 
+  def count_readers_of_popular_books
+    books = most_popular(3, :book)
+    set = []
+    @orders.each { |order| set << order.reader if (order.book && books).any? }
+    set.uniq.length
+  end
+
+  def most_popular_book
+    most_popular(1, :book).first.title
+  end
+
   private
 
   def most_popular(elements_qty, method)
