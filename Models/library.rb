@@ -31,19 +31,19 @@ class Library
     File.open(file_name, 'w') { |file| file.write(self.to_yaml) }
   end
 
-  def most_popular_reader
-    most_popular(1, :reader).first.name
+  def most_popular_reader(elems_num)
+    most_popular(elems_num, :reader).first.name
   end
 
-  def count_readers_of_popular_books
-    books = most_popular(3, :book)
+  def count_readers_of_popular_books(elems_num)
+    books = most_popular(elems_num, :book)
     set = []
     @orders.each { |order| set << order.reader if (order.book && books).any? }
     set.uniq.length
   end
 
-  def most_popular_book
-    most_popular(1, :book).first.title
+  def most_popular_book(elems_num)
+    most_popular(elems_num, :book).first.title
   end
 
   private
