@@ -17,7 +17,7 @@ class Reader
   end
 
   def validate_str(name)
-    raise StandardError, "#{name} is incorrect" unless name.is_a?(String) && name != ''
+    raise StandardError, "#{name} is incorrect" unless name.is_a?(String) && name.present?
   end
 
   def validate_house(house)

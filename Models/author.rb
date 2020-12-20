@@ -4,7 +4,7 @@ class Author
   attr_accessor :name, :biography
 
   def initialize(name, biography)
-    raise StandardError, 'Name is incorrect' unless name.is_a?(String) && !name.nil? && name != ''
+    raise StandardError, 'Name is incorrect' unless name.is_a?(String) && !name.nil? && name.present?
 
     @name = name
     @biography = biography
