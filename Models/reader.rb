@@ -16,15 +16,17 @@ class Reader
     @house = house
   end
 
+  def to_s
+    "#{name} - #{email}. Address: #{city}, #{house} #{street}"
+  end
+
+  private
+
   def validate_str(name)
-    raise StandardError, "#{name} is incorrect" unless name.is_a?(String) && name.present?
+    raise StandardError, "#{name} is incorrect" unless name.is_a?(String) && name != ''
   end
 
   def validate_house(house)
     raise StandardError, 'house is incorrect' unless house.is_a?(Integer) && house.positive?
-  end
-
-  def to_s
-    "#{name} - #{email}. Address: #{city}, #{house} #{street}"
   end
 end
