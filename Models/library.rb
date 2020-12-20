@@ -16,7 +16,7 @@ class Library
     @orders = orders
   end
 
-  def read_from_yaml(file_name = "lib_#{object_id}.yml")
+  def read_from_yaml(file_name = 'library.yml')
     if File.exist?(file_name)
       library = YAML.load_file(file_name)
       @authors = library.authors
@@ -28,24 +28,29 @@ class Library
     end
   end
 
-  def write_to_yaml(file_name = "lib_#{object_id}.yml")
-    File.new(file_name, 'w') unless File.exist?(file_name)
+  def write_to_yaml(file_name = 'library.yml')
+    File.delete(file_name) if File.exist?(file_name)
+    File.new(file_name, 'w')
     File.open(file_name, 'w') { |file| file.write(to_yaml) }
   end
 
-  def most_popular_reader(elems_num)
-    most_popular(elems_num, :reader).first.name
+  def most_popular_reader(elems_num = 1)
+    elems = []
+    result = most_popular(elems_num, :reader)
+    result.each { |n| elems << n.name }
+    elems
   end
 
-  def count_readers_of_popular_books(elems_num)
+  def count_readers_of_popular_books(elems_num = 3)
     books = most_popular(elems_num, :book)
-    set = []
-    @orders.each { |order| set.push order.reader if (order.book && books).any? }
-    set.uniq.length
+    @orders.select { |order| books.include? order.book }.map(&:reader).uniq.size
   end
 
-  def most_popular_book(elems_num)
-    most_popular(elems_num, :book).first.title
+  def most_popular_book(elems_num = 1)
+    elems = []
+    result = most_popular(elems_num, :book)
+    result.each { |n| elems << n.title }
+    elems
   end
 
   private
