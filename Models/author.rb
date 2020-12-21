@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Author
-  attr_accessor :name, :biography
+  attr_reader :name, :biography
 
   def initialize(name, biography)
     raise StandardError, 'Name is incorrect' unless name.is_a?(String) && !name.nil? && name != ''

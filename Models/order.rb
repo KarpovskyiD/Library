@@ -4,7 +4,7 @@ require_relative 'book'
 require_relative 'reader'
 
 class Order
-  attr_accessor :book, :reader, :date
+  attr_reader :book, :reader, :date
 
   def initialize(book, reader, date = Time.now)
     raise StandardError, 'book is incorrect' unless book.is_a?(Book)

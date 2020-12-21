@@ -3,7 +3,7 @@
 require_relative 'author'
 
 class Book
-  attr_accessor :title, :autor
+  attr_reader :title, :autor
 
   def initialize(title, author)
     raise StandardError, 'Author is incorrect' unless author.is_a?(Author)

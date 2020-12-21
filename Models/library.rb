@@ -7,7 +7,7 @@ require_relative 'reader'
 require 'yaml'
 
 class Library
-  attr_accessor :books, :orders, :authors, :readers
+  attr_reader :books, :orders, :authors, :readers
 
   def initialize(authors, books, readers, orders)
     @authors = authors
@@ -35,10 +35,8 @@ class Library
   end
 
   def most_popular_reader(elems_num = 1)
-    elems = []
     result = most_popular(elems_num, :reader)
-    result.each { |n| elems << n.name }
-    elems
+    result.map(&:name)
   end
 
   def count_readers_of_popular_books(elems_num = 3)
@@ -47,10 +45,8 @@ class Library
   end
 
   def most_popular_book(elems_num = 1)
-    elems = []
     result = most_popular(elems_num, :book)
-    result.each { |n| elems << n.title }
-    elems
+    result.map(&:title) 
   end
 
   private
