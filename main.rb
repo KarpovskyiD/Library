@@ -37,9 +37,9 @@ library.books << book7
 library.books << book8
 library.books << book9
 
-reader1 = Reader.new({name: 'DK', email:'dk@gmail.com', city:'D', street:'street', house:1})
-reader2 = Reader.new({name: 'DM', email:'dk@gmail.com', city:'D', street:'street', house:1})
-reader3 = Reader.new({name: 'DS', email:'dk@gmail.com', city:'D', street:'street', house:1})
+reader1 = Reader.new({ name: 'DK', email: 'dk@gmail.com', city: 'D', street: 'street', house: 1 })
+reader2 = Reader.new({ name: 'DM', email: 'dk@gmail.com', city: 'D', street: 'street', house: 1 })
+reader3 = Reader.new({ name: 'DS', email: 'dk@gmail.com', city: 'D', street: 'street', house: 1 })
 
 library.readers << reader1
 library.readers << reader2
@@ -69,7 +69,7 @@ author4 = Author.new('Chuck Palahniuk', 'bio')
 library.authors << author4
 book10 = Book.new('Fight club', author4)
 library.books << book10
-reader4 = Reader.new({name: 'DT', email:'dk@gmail.com', city:'D', street:'street', house:1})
+reader4 = Reader.new({ name: 'DT', email: 'dk@gmail.com', city: 'D', street: 'street', house: 1 })
 library.readers << reader4
 order9 = Order.new(book10, reader4)
 library.orders << order9

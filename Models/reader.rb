@@ -5,11 +5,11 @@ class Reader
 
   def initialize(args)
     validate(args)
-    @name = args.dig(:name)
-    @email = args.dig(:email)
-    @city = args.dig(:city)
-    @street = args.dig(:street)
-    @house = args.dig(:house)
+    @name = args[:name]
+    @email = args[:email]
+    @city = args[:city]
+    @street = args[:street]
+    @house = args[:house]
   end
 
   def to_s

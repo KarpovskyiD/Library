@@ -46,7 +46,7 @@ class Library
 
   def most_popular_book(elems_num = 1)
     result = most_popular(elems_num, :book)
-    result.map(&:title) 
+    result.map(&:title)
   end
 
   private
