@@ -1,19 +1,15 @@
 # frozen_string_literal: true
 
 class Reader
-  attr_accessor :name, :email, :city, :street, :house
+  attr_reader :name, :email, :city, :street, :house
 
-  def initialize(name, email, city, street, house)
-    validate_str(name)
-    validate_str(email)
-    validate_str(city)
-    validate_str(street)
-    validate_house(house)
-    @name = name
-    @email = email
-    @city = city
-    @street = street
-    @house = house
+  def initialize(args)
+    validate(args)
+    @name = args.dig(:name)
+    @email = args.dig(:email)
+    @city = args.dig(:city)
+    @street = args.dig(:street)
+    @house = args.dig(:house)
   end
 
   def to_s
@@ -28,5 +24,11 @@ class Reader
 
   def validate_house(house)
     raise StandardError, 'house is incorrect' unless house.is_a?(Integer) && house.positive?
+  end
+
+  def validate(args)
+    args.each do |key, value|
+      key == :house ? validate_house(value) : validate_str(value)
+    end
   end
 end
