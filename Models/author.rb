@@ -9,8 +9,4 @@ class Author
     @name = name
     @biography = biography
   end
-
-  def to_s
-    "Name: #{name}:, Biography: #{biography}"
-  end
 end
