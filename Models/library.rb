@@ -17,21 +17,17 @@ class Library
   end
 
   def read_from_yaml(file_name = 'library.yml')
-    if File.exist?(file_name)
-      library = YAML.load_file(file_name)
-      @authors = library.authors
-      @books = library.books
-      @orders = library.orders
-      @readers = library.readers
-    else
-      puts 'There is no such file.'
-    end
+    return unless File.exist?(file_name)
+
+    library = YAML.load_file(file_name)
+    @authors = library.authors
+    @books = library.books
+    @orders = library.orders
+    @readers = library.readers
   end
 
   def write_to_yaml(file_name = 'library.yml')
-    File.delete(file_name) if File.exist?(file_name)
-    File.new(file_name, 'w')
-    File.open(file_name, 'w') { |file| file.write(to_yaml) }
+    File.write(file_name, to_yaml)
   end
 
   def most_popular_reader(elems_num = 1)
