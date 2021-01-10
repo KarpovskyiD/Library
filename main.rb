@@ -8,7 +8,7 @@ require_relative './Models/library'
 require_relative 'seeds'
 
 library = Library.new([], [], [], [])
-file_name = 'settings.yml'
+file_name = 'library.yml'
 
 Seeds.fill_the_library(library, file_name)
 
