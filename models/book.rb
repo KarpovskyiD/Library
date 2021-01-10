@@ -7,7 +7,7 @@ class Book
 
   def initialize(title, author)
     raise StandardError, 'Author is incorrect' unless author.is_a?(Author)
-    raise StandardError, 'Title is incorrect' unless title.is_a?(String) && title != ''
+    raise StandardError, 'Title is incorrect' if !title.is_a?(String) || title.empty?
 
     @title = title
     @author = author

@@ -18,7 +18,7 @@ class Reader
 
   private
 
-  def validate_str(name)
+  def validate_str(name = 'Text parameter')
     raise StandardError, "#{name} is incorrect" unless name.is_a?(String) && name != ''
   end
 

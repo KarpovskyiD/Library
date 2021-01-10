@@ -31,8 +31,7 @@ class Library
   end
 
   def most_popular_reader(elems_num = 1)
-    result = most_popular(elems_num, :reader)
-    result.map(&:name)
+    most_popular(elems_num, :reader).map(&:name)
   end
 
   def count_readers_of_popular_books(elems_num = 3)
@@ -41,8 +40,7 @@ class Library
   end
 
   def most_popular_book(elems_num = 1)
-    result = most_popular(elems_num, :book)
-    result.map(&:title)
+    most_popular(elems_num, :book).map(&:title)
   end
 
   private

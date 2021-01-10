@@ -4,9 +4,9 @@ class Author
   attr_reader :name, :biography
 
   def initialize(name, biography)
-    raise StandardError, 'Name is incorrect' if !name.is_a?(String) || name.nil? && name.empty?
+    raise StandardError, 'Name is incorrect' unless name.is_a?(String) && !name.empty?
 
     @name = name
     @biography = biography
   end
- 
+end
