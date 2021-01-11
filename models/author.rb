@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../validation/validator'
 
 class Author
@@ -12,6 +13,7 @@ class Author
   end
 
   private
+
   def validate(author_name, biography)
     validate_name(author_name)
     validate_biography(biography)

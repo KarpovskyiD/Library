@@ -12,10 +12,10 @@ class Library
   attr_reader :books, :orders, :authors, :readers
 
   def initialize(args = {})
-    @authors = args.fetch(:authors, [])
-    @books = args.fetch(:books, [])
-    @readers = args.fetch(:readers, [])
-    @orders = args.fetch(:orders, [])
+    @authors = args.fetch(:authors) { [] }
+    @books = args.fetch(:books) { [] }
+    @readers = args.fetch(:readers) { [] }
+    @orders = args.fetch(:orders) { [] }
   end
 
   def read_from_yaml(file_name = 'library.yml')

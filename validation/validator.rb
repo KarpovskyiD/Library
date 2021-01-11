@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'empty_string_error'
 require_relative 'negative_number_error'
 require_relative 'wrong_class_error'
