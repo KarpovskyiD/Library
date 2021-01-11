@@ -1,6 +1,8 @@
 # frozen_string_literal: true
+require_relative '../validation/validator'
 
 class Reader
+  include Validator
   attr_reader :name, :email, :city, :street, :house
 
   def initialize(args)
@@ -18,12 +20,14 @@ class Reader
 
   private
 
-  def validate_str(name = 'Text parameter')
-    raise StandardError, "#{name} is incorrect" unless name.is_a?(String) && name != ''
+  def validate_str(item)
+    correct_argument_type(item, String)
+    empty_string(item)
   end
 
   def validate_house(house)
-    raise StandardError, 'house is incorrect' unless house.is_a?(Integer) && house.positive?
+    correct_argument_type(house, Integer)
+    negative_number(house)
   end
 
   def validate(args)

@@ -7,7 +7,7 @@ require_relative './models/reader'
 require_relative './models/library'
 require_relative 'seeds'
 
-library = Library.new([], [], [], [])
+library = Library.new
 file_name = 'library.yml'
 
 Seeds.fill_the_library(library, file_name)
@@ -22,11 +22,9 @@ order = Order.new(book, reader)
 library.orders << order
 
 library.write_to_yaml(file_name)
+library.read_from_yaml(file_name)
 
-library1 = Library.new([], [], [], [])
-library1.read_from_yaml(file_name)
-
-puts "Most popular readers: #{library1.most_popular_reader.join(', ')}."
-puts "Most popular books: #{library1.most_popular_book.join(', ')}."
+puts "Most popular readers: #{library.most_popular_reader.join(', ')}."
+puts "Most popular books: #{library.most_popular_book.join(', ')}."
 puts 'Number of Readers of the Most Popular Books: '\
-     "#{library1.count_readers_of_popular_books(1)}."
+     "#{library.count_readers_of_popular_books(1)}."
