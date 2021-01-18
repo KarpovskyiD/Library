@@ -5,7 +5,7 @@ require_relative 'author'
 
 class Book
   include Validator
-  attr_reader :title, :autor
+  attr_reader :title, :author
 
   def initialize(title, author)
     validate(title, author)
