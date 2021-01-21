@@ -8,7 +8,6 @@ require 'yaml'
 require_relative '../validation/validator'
 
 class Library
-  
   attr_reader :books, :orders, :authors, :readers
 
   def initialize(args = {})

@@ -16,7 +16,7 @@ author = Author.new('Chuck Palahniuk', 'bio')
 library.authors << author
 book = Book.new('Fight club', author)
 library.books << book
-reader = Reader.new({ name: 'DT', email: 'ds@gmail.com', city: 'D', street: 'street', house: 1 })
+reader = Reader.new(name: 'DT', email: 'ds@gmail.com', city: 'D', street: 'street', house: 1)
 library.readers << reader
 order = Order.new(book, reader)
 library.orders << order

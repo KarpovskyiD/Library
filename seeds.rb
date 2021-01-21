@@ -22,22 +22,22 @@ module Seeds
   end
 
   def self.add_authors(library, list)
-    list.each do |aut|
-      author = Author.new(aut, 'bio')
+    list.each do |author_name|
+      author = Author.new(author_name, 'bio')
       library.authors << author
     end
   end
 
   def self.add_books(library, list)
-    list.each do |b|
-      book = Book.new(b, library.authors.sample)
+    list.each do |book_sample|
+      book = Book.new(book_sample, library.authors.sample)
       library.books << book
     end
   end
 
   def self.add_readers(library, list)
-    list.each do |r|
-      reader = Reader.new({ name: r, email: 'dk@gmail.com', city: 'D', street: 'street', house: 1 })
+    list.each do |reader_name|
+      reader = Reader.new(name: reader_name, email: 'dk@gmail.com', city: 'D', street: 'street', house: 1)
       library.readers << reader
     end
   end
